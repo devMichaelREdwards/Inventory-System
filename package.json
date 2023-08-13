@@ -1,0 +1,19 @@
+{
+    "name": "inventory-system",
+    "version": "1.0.0",
+    "description": "",
+    "devDependencies": {
+        "@types/node": "^20.4.9"
+    },
+    "scripts": {
+        "start-client": "cd client && npm start",
+        "start-server": "cd server && node server.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.3.1",
+        "typescript": "^5.1.6"
+    }
+}

@@ -1,0 +1,54 @@
+version: '3.7'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_DATABASE: inventorySystem
+    ports:
+      - 27017:27017
+    volumes:
+      - ./.docker/data/init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - inventory_mongo:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: pass
+      ME_CONFIG_MONGODB_URL: mongodb://root:pass@mongo:27017/
+
+  server:
+      build:
+        context: ./server
+        dockerfile: ../Dockerfile.server
+      ports:
+        - "9000:9000"   
+      depends_on:
+        - mongo
+      command: npm run devStart
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: ../Dockerfile.client
+    volumes:
+      - './client:/client'
+      - './client/node_modules:/client/node_modules'
+      - './client/public:/client/public'
+    ports:
+      - 3000:3000
+    stdin_open: true
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_OPTIONS="--max-old-space-size=4096"
+    command: npm start
+volumes:
+  inventory_mongo:
