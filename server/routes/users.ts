@@ -1,14 +1,16 @@
 import express from 'express';
+import User from '../models/user';
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    res.status(200).json({ name: 'testtttttttttt' });
+    const users = await User.find().exec();
+    res.status(200).json({ users });
 });
 
-router.get('/:id', (req, res) => {
-    console.log(res.locals.user);
-    res.status(200).json(res.locals.user);
+router.get('/:id', async (req, res) => {
+    const user = await User.find({ id: parseInt(req.params.id) }).exec();
+    res.status(200).json(user);
 });
 
 router.param('id', (req, res, next, id) => {

@@ -1,8 +1,12 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
+import connectDatabase from './config/database';
 import users from './routes/users';
 
 dotenv.config();
+
+connectDatabase();
+
 const app = express();
 
 if (!process.env.PORT) {
@@ -15,4 +19,4 @@ app.get('/', (req, res) => {
 
 app.use('/users', users);
 
-app.listen(9000);
+app.listen(process.env.PORT);
