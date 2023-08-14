@@ -24,16 +24,25 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:pass@mongo:27017/
 
   server:
-      build:
-        context: ./server
-        dockerfile: ../Dockerfile.server
-      ports:
-        - "9000:9000"   
-      depends_on:
-        - mongo
-      command: npm run devStart
+    image: inventorysystem-server
+    build:
+      context: ./server
+      dockerfile: ../Dockerfile.server
+    volumes:
+      - './server:/server'
+      - './server/node_modules:/server/node_modules'
+    ports:
+      - "9000:9000"   
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_OPTIONS="--max-old-space-size=4096"
+    command: npm run devStart
 
   client:
+    image: inventorysystem-client
     container_name: client
     build:
       context: ./client

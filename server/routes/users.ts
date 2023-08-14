@@ -1,10 +1,9 @@
 import express from 'express';
-import { RequestData } from '../types/request';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.status(200).json({ name: 'test' });
+router.get('/', async (req, res) => {
+    res.status(200).json({ name: 'testtttttttttt' });
 });
 
 router.get('/:id', (req, res) => {
