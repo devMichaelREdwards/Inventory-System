@@ -1,15 +1,16 @@
 import express from 'express';
-import User from '../models/user';
+import UserExample from '../models/userExample';
+import { authenticateToken } from '../helpers/jwt';
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const users = await User.find().exec();
+    const users = await UserExample.find().exec();
     res.status(200).json({ users });
 });
 
 router.get('/:id', async (req, res) => {
-    const user = await User.find({ id: parseInt(req.params.id) }).exec();
+    const user = await UserExample.find({ id: parseInt(req.params.id) }).exec();
     res.status(200).json(user);
 });
 

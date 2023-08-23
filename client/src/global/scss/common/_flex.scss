@@ -1,0 +1,98 @@
+// container styles
+.v-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.h-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.justify-right {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-even {
+    justify-content: space-evenly;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.content-start {
+    align-content: flex-start;
+}
+
+.content-end {
+    align-content: flex-end;
+}
+
+.content-center {
+    align-content: center;
+}
+
+.content-between {
+    align-content: space-between;
+}
+
+.content-around {
+    align-content: space-around;
+}
+
+.align-even {
+    align-content: space-evenly;
+}
+
+.stretch {
+    align-content: stretch;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.row {
+    width: 100% !important;
+}
+
+.column {
+    height: 100% !important;
+}

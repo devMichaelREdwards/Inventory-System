@@ -1,7 +1,14 @@
 import './App.scss';
+import AdminRoutes from './front/components/routes/AdminRoutes';
+import HomeRoutes from './front/components/routes/HomeRoutes';
 
 function App() {
-    return <>Routes Go Hereeee</>;
+    return (
+        <>
+            <AdminRoutes />
+            <HomeRoutes />
+        </>
+    );
 }
 
 export default App;
