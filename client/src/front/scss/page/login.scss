@@ -1,0 +1,9 @@
+.login-page {
+    background-color: cadetblue;
+    height: calc(100% - 56px);
+    display: flex;
+    align-items: center;
+    .login-panel {
+        background-color: white;
+    }
+}

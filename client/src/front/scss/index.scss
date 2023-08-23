@@ -1,1 +1,8 @@
 @import './common/page';
+@import './page/login';
+
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

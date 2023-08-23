@@ -1,8 +1,8 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
-import NavBar from '../navbar/NavBar';
-import HomePage from '../pages/HomePage';
-import { randomRange } from '../../../global/helpers/math';
-import NoPage from '../pages/NoPage';
+import NavBar from '../front/components/navbar/NavBar';
+import HomePage from '../front/components/pages/HomePage';
+import NoPage from '../front/components/pages/NoPage';
+import LoginPage from '../front/components/pages/LoginPage';
 
 interface ILayoutProps {
     title: string;
@@ -25,6 +25,7 @@ function HomeRoutes() {
                 path='/'
                 element={<Layout title={'Inventory System Demo'} />}>
                 <Route path='' element={<HomePage />} />
+                <Route path='login' element={<LoginPage />} />
                 {/* Add home routes here */}
                 <Route path='*' element={<NoPage />} />
             </Route>

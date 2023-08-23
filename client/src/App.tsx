@@ -1,6 +1,6 @@
 import './App.scss';
-import AdminRoutes from './front/components/routes/AdminRoutes';
-import HomeRoutes from './front/components/routes/HomeRoutes';
+import AdminRoutes from './routes/AdminRoutes';
+import HomeRoutes from './routes/HomeRoutes';
 
 function App() {
     return (
